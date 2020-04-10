@@ -5,16 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
-        WindowState="Maximized">
+        Title="MainWindow" Height="350" Width="525">
 
-    <StackPanel>
-
+    <StackPanel x:Name="uxContainer">
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" Background="#FFF0CBCB"/>
+
+        <TextBox x:Name="uxName" 
+        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label x:Name="uxNameError" 
+            Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+        <TextBox x:Name="uxPassword" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"></TextBox>
+        <Label x:Name="uxPasswordError" 
+            Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" Content="Submit" Width="100">
+            
+        </Button>
         
 <Button>
     <StackPanel Orientation="Horizontal">
@@ -22,5 +31,12 @@
         <TextBlock VerticalAlignment="Center"  Text="Thumbs Up" />
     </StackPanel>
 </Button>
+        <Button x:Name="uxCheckBoxButton">
+            <StackPanel>
+                <CheckBox x:Name="uxCheckBox3" Content="Check"/>
+                <CheckBox x:Name="uxCheckBox4" Content="Check 2"/>
+            </StackPanel>
+        </Button>
+
     </StackPanel>
 </Window>
