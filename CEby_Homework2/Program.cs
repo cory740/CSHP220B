@@ -30,13 +30,15 @@ namespace CEby_Homework2
             var pwHelloQuery =
                  from uxUser in users
                  where uxUser.Password == "hello"
-                 select uxUser;
+                 select uxUser.ToString();
 
             Console.WriteLine("\n\nUsers with a Password of hello:\n=============================");
-            foreach (User user in pwHelloQuery)
-            {
-                Console.WriteLine("Name: {0}\nPassword: {1}\n-----------------------------", user.Name, user.Password);
-            }
+            Console.WriteLine(string.Join(",", pwHelloQuery));
+
+          // foreach (User user in pwHelloQuery)
+          // {
+          //     Console.WriteLine("Name: {0}\nPassword: {1}\n-----------------------------", user.Name, user.Password);
+          // }
 
             users.RemoveAll(uxUser => uxUser.Password == uxUser.Name.ToLower());
 
