@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//Cory Eby
+//Homework 4
+
 namespace CEby_Homework4
 {
     /// <summary>
@@ -24,42 +27,32 @@ namespace CEby_Homework4
         public MainWindow()
         {
             InitializeComponent();
+
             uxSubmit.IsEnabled = false;
-            uxZipError.IsEnabled = false;
-
 
         }
 
-        
-        private static readonly Regex usZip = new Regex(@"^\d{5}(?:[-\s]\d{4})?$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        private static readonly Regex caZip = new Regex(@"[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d");
-
-        private static bool IsTextAllowed(string uxZip)
-        {
-            return !usZip.IsMatch(uxZip);
-        }
-      // private bool IsUSOrCanadianZip(string uxZip)
-      // {
-      //     var validZip = true;
-      //
-      //     if ((!Regex.Match(uxZ, usZip).Success) && (!Regex.Match(uxZip, caZip).Success))
-      //     {
-      //         validZip = true;
-      //     }
-      //     return validZip;
-      // }
         private void uxZip_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!Regex.Match(uxZip.Text, usZip).Success || Regex.Match(uxZip.Text, caZip).Success)
+            string usZipPattern = @"^\d{5}(?:[-\s]\d{4})?$";
+            string caZipPattern = @"[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d";
+            bool isUsZipAllowed = Regex.IsMatch(uxZip.Text, usZipPattern);
+            bool isCaZipAllowed = Regex.IsMatch(uxZip.Text, caZipPattern);
+
+            if (isUsZipAllowed || isCaZipAllowed)
             {
-                uxSubmit.IsEnabled = false;
+                uxSubmit.IsEnabled = true;
             }
             else
             {
                 uxSubmit.IsEnabled = false;
-                uxZipError.IsEnabled = true;
-
+               
             }
+        }
+
+        private void uxSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"You've entered the follow Zip Code: {uxZip.Text} ");
         }
     }
 }
