@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
         Title="NavigatorWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\coryeby\source\repos\CSHP220B\HelloWorld\images\wpf-world.png"/>
+    </Window.Background>
     <StackPanel>
         <TextBlock Text="Enter an address (Don't forget HTTP://)"/>
         <TextBox x:Name="uxURL"/>
-        <Button Command="NavigationCommands.GoToPage"
+        <Button x:Name="uxGo" Click="uxGo_Clicked">Go</Button>
     </StackPanel>
 </Window>

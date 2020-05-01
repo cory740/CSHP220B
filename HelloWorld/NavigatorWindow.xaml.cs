@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +22,20 @@ namespace HelloWorld
         public NavigatorWindow()
         {
             InitializeComponent();
+        }
+
+        private void uxGo_Clicked(object sender, RoutedEventArgs e)
+        {
+            var fileName = uxURL.Text;
+
+            var processStartInfo = new ProcessStartInfo(fileName)
+            {
+                UseShellExecute = true,
+                Verb = "open",
+            };
+
+            Process.Start(processStartInfo);
+
         }
     }
 }
