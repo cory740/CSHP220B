@@ -55,14 +55,26 @@ namespace ContactApp
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
+            EditContact();
+        }
+
+        private void EditContact()
+        {
             var window = new ContactWindow();
-            window.Contact = selectedContact;
+            window.Contact = selectedContact.Clone();
 
             if (window.ShowDialog() == true)
             {
                 App.ContactRepository.Update(window.Contact.ToRepositoryModel());
                 LoadContacts();
             }
+        }
+
+        private void uxContactList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //Laziest uxFileChange_Click(null, null);
+            //Lazy uxFileChange_Click(sender, null);
+            EditContact(); //Best Practice
         }
 
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)
@@ -130,6 +142,7 @@ namespace ContactApp
             uxFileChange.IsEnabled = (selectedContact != null);
             uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
         }
+
 
     }
 }

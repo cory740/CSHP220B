@@ -10,22 +10,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HelloWorld
+namespace ContactApp
 {
     /// <summary>
-    /// Interaction logic for RGBWindow.xaml
+    /// Interaction logic for ListBoxWindow.xaml
     /// </summary>
-    public partial class RGBWindow : Window
+    public partial class ListBoxWindow : Window
     {
-        public RGBWindow()
+        public ListBoxWindow()
         {
             InitializeComponent();
-        }
-
-        private void uxSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            var value = uxNumber.Value;
-            MessageBox.Show("Your number is " + value);
         }
     }
 }

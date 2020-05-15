@@ -1,9 +1,14 @@
-﻿using System;
+﻿using AutoMapper;
+using ContactDB;
+using System;
 
 namespace ContactApp.Models
 {
     public class ContactModel
     {
+        private static MapperConfiguration mapperConfiguration = new MapperConfiguration(t => t.CreateMap<ContactModel, ContactRepository.Models.ContactModel>().ReverseMap());
+        private static IMapper mapper = mapperConfiguration.CreateMapper();
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -12,37 +17,30 @@ namespace ContactApp.Models
         public int Age { get; set; }
         public string Notes { get; set; }
         public DateTime CreatedDate { get; set; }
+        //public string[] UserList { get; set; } 
 
-        public ContactRepository.ContactModel ToRepositoryModel()
+
+        public ContactModel Clone()
         {
-            var repositoryModel = new ContactRepository.ContactModel
-            {
-                Age = Age,
-                CreatedDate = CreatedDate,
-                Email = Email,
-                Id = Id,
-                Name = Name,
-                Notes = Notes,
-                PhoneNumber = PhoneNumber,
-                PhoneType = PhoneType
-            };
+            var clonedOne = (ContactModel)MemberwiseClone();
+            //clonedOne.UserList = (string[])UserList.Clone(); //use this format for reference based objects (Array, List, etc)
+
+            return clonedOne;
+        }
+        public ContactRepository.Models.ContactModel ToRepositoryModel()
+        {
+            //using automapper
+            var repositoryModel = mapper.Map<ContactRepository.Models.ContactModel>
+                (this);
 
             return repositoryModel;
         }
 
-        public static ContactModel ToModel(ContactRepository.ContactModel respositoryModel)
+        public static ContactModel ToModel(ContactRepository.Models.ContactModel respositoryModel)
         {
-            var contactModel = new ContactModel
-            {
-                Age = respositoryModel.Age,
-                CreatedDate = respositoryModel.CreatedDate,
-                Email = respositoryModel.Email,
-                Id = respositoryModel.Id,
-                Name = respositoryModel.Name,
-                Notes = respositoryModel.Notes,
-                PhoneNumber = respositoryModel.PhoneNumber,
-                PhoneType = respositoryModel.PhoneType
-            };
+            //Only possible because we did reverse map
+            var contactModel = mapper.Map<ContactModel>(respositoryModel);
+            
 
             return contactModel;
         }

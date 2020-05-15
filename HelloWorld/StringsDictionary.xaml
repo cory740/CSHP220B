@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HelloWorld"
                     xmlns:clr="clr-namespace:System;assembly=System.Runtime">
-                    
     
     <clr:String x:Key="ApplicationName">My Hello World Application</clr:String>
 
     <clr:String x:Key="LocalChecked">Local Checked Resource</clr:String>
+
 </ResourceDictionary>

@@ -30,8 +30,6 @@ namespace HelloWorld
         {
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.UserId).ValueGeneratedNever();
-
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);

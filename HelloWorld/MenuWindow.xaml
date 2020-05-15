@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="800">
+        Title="MenuWindow" Height="450" Width="800" Background="HotPink">
     <Window.CommandBindings>
-        <CommandBinding Command="New" CanExecute="OnNew_CanExecute" Executed="OnNew_Click" />
+        <CommandBinding x:Name="OnNew" Command="New" CanExecute="OnNew_CanExecute"  Executed="OnNew_Click" />
     </Window.CommandBindings>
     <Window.ContextMenu>
         <ContextMenu>
@@ -17,12 +17,12 @@
             <MenuItem Header="Menu item 3" />
         </ContextMenu>
     </Window.ContextMenu>
-    <StackPanel>
+    <StackPanel Background="AliceBlue">
         <Menu>
             <MenuItem x:Name="uxFile" Header="_File" Loaded="uxFile_Loaded">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="OnNew_Click">
                     <MenuItem.Icon>
-                        <Image Source="C:\Users\coryeby\source\repos\CSHP220B\HelloWorld\images\wpf-menus-new.png" Height="24" Width="24"/>
+                        <Image Source="\images\wpf-menus-new.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Open"/>
@@ -35,9 +35,9 @@
         <ToolBarTray>
             <ToolBar>
                 <Button Command="New" Content="New" Click="OnNew_Click"/>
+                <Button Content="Close" Click="OnClose_Click"/>
                 <Button Content="Copy"/>
                 <Button Content="Paste"/>
-                <Button Content="Exit" Click="OnClose_Click"/>
             </ToolBar>
             <ToolBar>
                 <Label>Font size:</Label>
@@ -50,6 +50,7 @@
             </ToolBar>
         </ToolBarTray>
         <Button Content="Click Me">
+            
         </Button>
     </StackPanel>
 </Window>

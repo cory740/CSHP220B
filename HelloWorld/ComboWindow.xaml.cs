@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
+
 namespace HelloWorld
 {
     /// <summary>
@@ -23,10 +24,10 @@ namespace HelloWorld
 
             var sample = new SampleContext();
             sample.User.Load();
-            uxListBox.ItemsSource = sample.User.Local.ToObservableCollection();
+            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
         }
 
-        private void uxListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void uxComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             uxGrid.DataContext = e.AddedItems[0];
         }

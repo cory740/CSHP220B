@@ -1,14 +1,18 @@
 ﻿<Application x:Class="HelloWorld.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:HelloWorld"
-             xmlns:clr="clr-namespace:System;assembly=System.Runtime"
-             StartupUri="RGBWindow.xaml">
+             xmlns:local="clr-namespace:HelloWorld" 
+             
+             StartupUri="ListBoxWindow.xaml">
     <Application.Resources>
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                
                 <ResourceDictionary Source="StylesDictionary.xaml"/>
-                <ResourceDictionary Source="Dictionary1.xaml"/>
+                
+                <ResourceDictionary Source="StringsDictionary.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

@@ -1,21 +1,11 @@
 ﻿using ContactDB;
+using ContactRepository.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 //This project/namespace to the database contacts
-namespace ContactRepository 
+namespace ContactRepository
 {
-    public class ContactModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PhoneType { get; set; }
-        public string PhoneNumber { get; set; }
-        public int Age { get; set; }
-        public string Notes { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-    }
 
     public class ContactRepository //maps to the database table Contact
     {

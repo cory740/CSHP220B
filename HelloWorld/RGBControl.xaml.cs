@@ -57,11 +57,5 @@ namespace HelloWorld
                 // just ignore the exception
             }
         }
-
-        private void uxSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            var value = uxNumber.Value;
-            MessageBox.Show("Your number is " + value);
-        }
     }
 }

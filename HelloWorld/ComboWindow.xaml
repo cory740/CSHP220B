@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="ComboWindow" Height="450" Width="800">
     <StackPanel>
-        <ListBox x:Name="uxListBox"
+        <ListBox x:Name="uxComboBox"
                 DisplayMemberPath="UserName"
-                SelectionChanged="uxListBox_SelectionChanged" Height="50"  />
+                SelectionChanged="uxComboBox_SelectionChanged"
+                 Height="100"/>
 
         <Grid x:Name="uxGrid">
             <Grid.RowDefinitions>
@@ -27,7 +28,7 @@
             <TextBlock Grid.Row="2" Text="Password:" />
             <TextBox Grid.Row="3" Text="{Binding UserPassword}"/>
             
-            <TextBlock Grid.Row="4" Text="Age"/>
+            <TextBlock Grid.Row="4" Text="Age:"/>
             <TextBox Grid.Row="5" Text="{Binding UserAge}"/>
         </Grid>
 

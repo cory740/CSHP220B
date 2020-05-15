@@ -26,6 +26,7 @@ namespace HelloWorld
         private void uxLocal_Clicked(object sender, RoutedEventArgs e)
         {
             var checkbox = (CheckBox)sender;
+
             if (checkbox.IsChecked.Value)
             {
                 var msg = Application.Current.FindResource("LocalChecked").ToString();
@@ -35,7 +36,6 @@ namespace HelloWorld
             {
                 MessageBox.Show("Local Unchecked");
             }
-            
         }
 
         private void uxNavigator_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
@@ -54,13 +54,13 @@ namespace HelloWorld
             Process.Start(processStartInfo);
         }
 
-        private void uxSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            // Update the progress from the slider
-            uxProgressBar.Value = e.NewValue;
+        //private void uxSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //{
+        //    // Update the progress from the slider
+        //    uxProgressBar.Value = e.NewValue;
 
-            // Send the output to the Debug window
-            Debug.WriteLine("Slider: OldValue={0} NewValue={1}", e.OldValue, e.NewValue);
-        }
+        //    // Send the output to the Debug window
+        //    Debug.WriteLine("Slider: OldValue={0} NewValue={1}", e.OldValue, e.NewValue);
+        //}
     }
 }

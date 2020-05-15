@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Text;
 using System.Windows;
@@ -24,18 +23,20 @@ namespace HelloWorld
             InitializeComponent();
         }
 
-        private void uxGo_Clicked(object sender, RoutedEventArgs e)
+        private void uxGo_Click(object sender, RoutedEventArgs e)
         {
-            var fileName = uxURL.Text;
+            // Convert the Uri into a string
+            var fileName = uxUrl.Text;
 
+            // Pass the fileName to the helper class
             var processStartInfo = new ProcessStartInfo(fileName)
             {
                 UseShellExecute = true,
                 Verb = "open",
             };
 
+            // Start a new process
             Process.Start(processStartInfo);
-
         }
     }
 }

@@ -7,9 +7,16 @@
         mc:Ignorable="d"
         Title="{StaticResource ApplicationName}" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="TextBox" x:Key="Input">
+        <Style TargetType="TextBox" x:Key="xInput">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3,10,0"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="Password">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="LightCoral"/>
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Margin" Value="0,3,10,0"/>
@@ -17,8 +24,7 @@
     </Window.Resources>
 
     <StackPanel>
-        <TextBox x:Name="uxName" Style="{StaticResource Input}" />
-        <TextBox x:Name="uxPassword" Style="{StaticResource Input2}"/>
+        <TextBox x:Name="uxName" Style="{StaticResource Input}" Background="#FFE2566F" Foreground="#FFB45959" />
+        <TextBox x:Name="uxPassword" Style="{StaticResource Password}" Background="#FF875252" />
     </StackPanel>
-
 </Window>

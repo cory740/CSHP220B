@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="NavigatorWindow" Height="450" Width="800">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\coryeby\source\repos\CSHP220B\HelloWorld\images\wpf-world.png"/>
+        <ImageBrush ImageSource="/images/wpf-world.png" />
     </Window.Background>
     <StackPanel>
-        <TextBlock Text="Enter an address (Don't forget HTTP://)"/>
-        <TextBox x:Name="uxURL"/>
-        <Button x:Name="uxGo" Click="uxGo_Clicked">Go</Button>
+        <TextBlock>Enter an address (<Run Foreground="red">Don't forget http://</Run>)</TextBlock>
+        <TextBox x:Name="uxUrl"></TextBox>
+        <Button x:Name="uxGo" Click="uxGo_Click">Go</Button>
     </StackPanel>
+
 </Window>

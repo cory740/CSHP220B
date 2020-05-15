@@ -31,10 +31,8 @@ namespace HelloWorld
             Close();
         }
 
-        // Click Ctrl-N to execute the shortcut.
         private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            // Set this to false if the New command is not available
             e.CanExecute = IsFileNewActive;
         }
 
@@ -42,7 +40,7 @@ namespace HelloWorld
         {
             get
             {
-                return true;
+                return false;
             }
         }
 

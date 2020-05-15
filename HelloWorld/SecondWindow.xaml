@@ -10,8 +10,8 @@
         <ListView x:Name="uxList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Password}" Header="Password" Width="100"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" />
+                    <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=Password}" />
                 </GridView>
             </ListView.View>
         </ListView>

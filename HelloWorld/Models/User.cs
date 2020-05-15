@@ -13,6 +13,7 @@ namespace HelloWorld.Models
         {
             return name + ", " + password;
         }
+
         public string NameError
         {
             get
@@ -25,6 +26,22 @@ namespace HelloWorld.Models
                 {
                     nameError = value;
                     OnPropertyChanged("NameError");
+                }
+            }
+        }
+
+        public string PasswordError
+        {
+            get
+            {
+                return passwordError;
+            }
+            set
+            {
+                if (passwordError != value)
+                {
+                    passwordError = value;
+                    OnPropertyChanged("PasswordError");
                 }
             }
         }
@@ -61,22 +78,6 @@ namespace HelloWorld.Models
             }
         }
 
-        public string PasswordError
-        {
-            get
-            {
-                return passwordError;
-            }
-            set
-            {
-                if (passwordError != value)
-                {
-                    passwordError = value;
-                    OnPropertyChanged("PasswordError");
-                }
-            }
-        }
-
         // IDataErrorInfo interface
         public string Error
         {
@@ -96,6 +97,8 @@ namespace HelloWorld.Models
                 {
                     case "Name":
                         {
+                            NameError = "";
+                            
                             if (string.IsNullOrEmpty(Name))
                             {
                                 NameError = "Name cannot be empty.";
@@ -104,22 +107,26 @@ namespace HelloWorld.Models
                             {
                                 NameError = "Name cannot be longer than 12 characters.";
                             }
+
                             return NameError;
                         }
                     case "Password":
                         {
+                            PasswordError = "";
+
                             if (string.IsNullOrEmpty(Password))
                             {
                                 PasswordError = "Password cannot be empty.";
                             }
-                            if (Password.Length < 8)
+                            if (Password.Length > 12)
                             {
-                                PasswordError = "Password cannot be less than 8 characters.";
+                                PasswordError = "Password cannot be longer than 12 characters.";
                             }
+                            
                             return PasswordError;
                         }
-
                 }
+
                 return null;
             }
         }

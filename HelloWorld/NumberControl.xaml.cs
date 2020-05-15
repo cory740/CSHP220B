@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -50,18 +49,19 @@ namespace HelloWorld
 
         private void uxNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            
-            if(!IsValidNumber(e.Text))
+            if (!IsValidNumber(e.Text))
             {
                 e.Handled = true;
             }
+
+            //e.Handled = !IsValidNumber(e.Text);
         }
 
         private bool IsValidNumber(string text)
         {
             foreach (var ch in text)
             {
-                if(!char.IsDigit(ch))
+                if (!char.IsDigit(ch))
                 {
                     return false;
                 }

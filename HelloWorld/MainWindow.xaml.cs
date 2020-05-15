@@ -22,21 +22,27 @@ namespace HelloWorld
     public partial class MainWindow : Window
     {
         private Models.User user = new Models.User();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            uxWindow.DataContext = user;
+
+            // Ex #1
+            //WindowState = WindowState.Maximized;
 
             uxContainer.DataContext = user;
 
             var sample = new SampleContext();
             sample.User.Load();
-            var users = sample.User.Local.ToObservableCollection();
-            uxList.ItemsSource = users;
-
+            uxList.ItemsSource = sample.User.Local.ToObservableCollection();
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
+            int x = 1;
+            x = x / 0;
 
             MessageBox.Show("Submitting password:" + uxPassword.Text);
 
