@@ -1,0 +1,22 @@
+﻿@model CEby_Homework6.Models.BirthdayCard
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<h1>Birthday Card Sent</h1>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+@if (Model.Message != null)
+{
+    @:From: @Model.From
+    <br />
+    @:To: @Model.To
+    <br />
+    @:Message: @Model.Message
+    <br />
+}
+else
+{
+    @:Something went wrong. Please try again.
+}

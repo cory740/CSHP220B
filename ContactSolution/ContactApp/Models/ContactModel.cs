@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using ContactDB;
 using System;
+using System.ComponentModel;
 
 namespace ContactApp.Models
 {
-    public class ContactModel
+    public class ContactModel : IDataErrorInfo, INotifyPropertyChanged
     {
         private static MapperConfiguration mapperConfiguration = new MapperConfiguration(t => t.CreateMap<ContactModel, ContactRepository.Models.ContactModel>().ReverseMap());
         private static IMapper mapper = mapperConfiguration.CreateMapper();
@@ -19,6 +20,61 @@ namespace ContactApp.Models
         public DateTime CreatedDate { get; set; }
         //public string[] UserList { get; set; } 
 
+        private string nameError { get; set; }
+
+        // INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // IDataErrorInfo interface
+        public string Error => "Never Used";
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case "Name":
+                        {
+                            NameError = "";
+
+                            if (Name == null || string.IsNullOrEmpty(Name))
+                            {
+                                NameError = "Name cannot be empty.";
+                            }
+                            else if (Name.Length > 12)
+                            {
+                                NameError = "Name cannot be longer than 12 characters.";
+                            }
+
+                            return NameError;
+                        }
+                }
+
+                return null;
+            }
+        }
+
+        public string NameError
+        {
+            get
+            {
+                return nameError;
+            }
+            set
+            {
+                if (nameError != value)
+                {
+                    nameError = value;
+                    OnPropertyChanged("NameError");
+                }
+            }
+        }
 
         public ContactModel Clone()
         {

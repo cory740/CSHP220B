@@ -29,24 +29,34 @@
                             <GridViewColumnHeader Tag="Name">Name</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Age}" Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Age">Age</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Gender}" Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Gender">Gender</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Breed}" Width="100">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Breed">Breed</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding DueDate}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding LitterCount}" Width="100">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="DueDate">Due Date</GridViewColumnHeader>
+                            <GridViewColumnHeader Tag="LitterCount"># of Litters</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding StudFee}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding CurrentPuppyCount}" Width="170">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="StudFee">Stud Fee</GridViewColumnHeader>
+                            <GridViewColumnHeader Tag="CurrentPuppyCount"># of puppies in current Litter</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Age}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding DogNotes}" Width="100">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Age">Age</GridViewColumnHeader>
+                            <GridViewColumnHeader Tag="DogNotes">Notes</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                 </GridView>

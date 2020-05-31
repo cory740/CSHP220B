@@ -1,0 +1,65 @@
+﻿<Window x:Class="DogBusinessApp.BreederWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DogBusinessApp"
+        mc:Ignorable="d"
+        Title="BreederWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+
+    <Grid x:Name="uxGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Name:</TextBlock>
+        <TextBox x:Name="uxName" Text="{Binding Name}" Grid.Column="1" Grid.Row="0"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Breed:</TextBlock>
+        <TextBox x:Name="uxBreed" Text="{Binding Breed}" Grid.Column="1" Grid.Row="1"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Gender:</TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
+            <RadioButton x:Name="uxMale" IsChecked="true">Male</RadioButton>
+            <RadioButton x:Name="uxFemale">Female</RadioButton>
+        </StackPanel>
+
+        <TextBlock Grid.Row="3" HorizontalAlignment="Right">Age:</TextBlock>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBlock x:Name="uxAge" Text="{Binding ElementName=uxAgeSlider, Path=Value}"/>
+            <Slider x:Name="uxAgeSlider" Value="{Binding Age}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="4" HorizontalAlignment="Right">Litters:</TextBlock>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBlock x:Name="uxLitters" Text="{Binding ElementName=uxLitterSlider, Path=Value}"/>
+            <Slider x:Name="uxLitterSlider" Value="{Binding LitterCount}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="5" HorizontalAlignment="Right">Puppy Count:</TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <TextBlock x:Name="uxPuppies" Text="{Binding ElementName=uxPuppySlider, Path=Value}"/>
+            <Slider x:Name="uxPuppySlider" Value="{Binding PuppyCount}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+        </StackPanel>
+
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="100" Width="200"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center">
+            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click"  Margin="10">Submit</Button>
+            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click"  Margin="10">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.19
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Project", "Final_Project.csproj", "{3CF27B99-683B-45CD-AFA7-24A1B3A2BE4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Final_Project", "Final_Project.csproj", "{3CF27B99-683B-45CD-AFA7-24A1B3A2BE4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogBusinessDB", "DogBusinessDB\DogBusinessDB.csproj", "{72016654-E7B3-4014-9AA1-ED9807D33F92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3CF27B99-683B-45CD-AFA7-24A1B3A2BE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF27B99-683B-45CD-AFA7-24A1B3A2BE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF27B99-683B-45CD-AFA7-24A1B3A2BE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72016654-E7B3-4014-9AA1-ED9807D33F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72016654-E7B3-4014-9AA1-ED9807D33F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72016654-E7B3-4014-9AA1-ED9807D33F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72016654-E7B3-4014-9AA1-ED9807D33F92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
