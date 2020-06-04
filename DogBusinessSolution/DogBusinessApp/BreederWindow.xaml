@@ -51,7 +51,7 @@
         <TextBlock Grid.Row="5" HorizontalAlignment="Right">Puppy Count:</TextBlock>
         <StackPanel Grid.Row="5" Grid.Column="1">
             <TextBlock x:Name="uxPuppies" Text="{Binding ElementName=uxPuppySlider, Path=Value}"/>
-            <Slider x:Name="uxPuppySlider" Value="{Binding PuppyCount}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+            <Slider x:Name="uxPuppySlider" Value="{Binding CurrentPuppyCount}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
         </StackPanel>
 
         <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
